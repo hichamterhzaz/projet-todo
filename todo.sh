@@ -4,12 +4,17 @@ TODO_FILE='todo.txt'
 
 # Function to load tasks from the file into an associative array
 load_tasks() {
+    declare -gA tasks
     if [ ! -f "$TODO_FILE" ]; then
         touch "$TODO_FILE"
     fi
+
+    while IFS='|' read -r id title description location due_date due_time completed; do
+        tasks["$id"]="$id|$title|$description|$location|$due_date|$due_time|$completed"
+    done < "$TODO_FILE"
 }
 
-# Function to save tasks from the file
+# Function to save tasks to the file
 save_tasks() {
     > "$TODO_FILE"
     for id in "${!tasks[@]}"; do
@@ -143,7 +148,6 @@ search_task() {
 
 # Main function 
 main() {
-    declare -A tasks
     case "$1" in
         create)
             create_task
@@ -170,4 +174,3 @@ main() {
 }
 
 main "$@"
-
