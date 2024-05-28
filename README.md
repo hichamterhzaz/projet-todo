@@ -2,7 +2,6 @@
 
 This is a simple Bash script for managing tasks. The script allows you to create, update, delete, show, list, and search tasks. Each task includes a title, description, location, due date, due time, and completion status.
 
-## Design Choices
 
 ### Data Storage
 
@@ -15,15 +14,15 @@ This format is chosen for its simplicity, allowing easy parsing and modification
 
 The script is organized into functions, each responsible for a specific operation. This modular design enhances maintainability and extensibility. The key functions are:
 
-- **`load_tasks`**: Reads tasks from the `todo.txt` file and loads them into the associative array `tasks`.
-- **`save_tasks`**: Writes the tasks from the associative array `tasks` back to the `todo.txt` file.
-- **`create_task`**: Prompts the user for task details and creates a new task.
-- **`update_task`**: Prompts the user for updates to an existing task.
-- **`delete_task`**: Deletes a task by its ID.
-- **`show_task`**: Displays details of a task by its ID.
-- **`list_tasks`**: Lists all tasks.
-- **`search_task`**: Searches for tasks by title.
-
+- **`load_tasks`**: This function retrieves tasks from the todo.txt file and stores them in the associative array tasks.
+- **`save_tasks`**: After modifications are made to tasks, this function writes the updated tasks from the tasks array back to the todo.txt file.
+- **`create_task`**: Interactively prompts the user to input task details and then creates a new task based on the provided information.
+- **`update_task`**: nteractively prompts the user to update an existing task by providing new details.
+- **`delete_task`**:Allows the user to delete a task by specifying its ID.
+- **`show_task`**: Displays the details of a specific task by its ID
+- **`list_tasks`**: Displays a list of all tasks stored in the system.
+- **`search_task`**: Allows the user to search for tasks based on their title.
+- 
 ### User Interaction
 
 - The script uses `read -p` to interactively prompt the user for input when creating or updating tasks.
