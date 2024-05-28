@@ -141,7 +141,7 @@ search_task() {
     fi
 }
 
-# Main function to process commands
+# Main function 
 main() {
     declare -A tasks
     case "$1" in
